@@ -1,0 +1,18 @@
+service: sls-typescript-template
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  api:
+    handler: index.main
+    events:
+      - httpApi:
+          path: /hello
+          method: get
+          cors: true
+
+plugins:
+  - serverless-plugin-typescript
